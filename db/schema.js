@@ -1,4 +1,4 @@
-const mongoos = require('mongoose')
+const mongoose = require('mongoose')
 
 // This will be the items schema nested in the Pantry Schema
 const ItemSchema = mongoose.Schema({
@@ -32,9 +32,9 @@ const UserSchema = mongoose.Schema({
 
 })
 
-const Item = mongoose.model(Item, 'ItemScheman')
-const Pantry = mongoose.model(Pantry, 'PantrySchema')
-const User = mongoose.model(User, 'UserSchema')
+const Item = mongoose.model("Item", ItemSchema)
+const Pantry = mongoose.model("Pantry", PantrySchema)
+const User = mongoose.model("User", UserSchema)
 
 
 module.exports= {
