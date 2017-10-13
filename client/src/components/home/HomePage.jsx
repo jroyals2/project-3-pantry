@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import SignUpForm from './SignUpForm'
 class HomePage extends Component {
     state = {
         users: []
@@ -24,6 +25,7 @@ getAllUsers = async () => {
                 {this.state.users.map(user => {
                     return (<Link key={user._id} to={`/user/${user._id}`}>{user.userName}</Link>)
                 })}
+                <SignUpForm />
             </div>
         );
     }
