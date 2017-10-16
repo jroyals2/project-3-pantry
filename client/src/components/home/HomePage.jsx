@@ -16,16 +16,27 @@ getAllUsers = async () => {
    this.setState({users: res.data})
 }
 
+updateUser = async (newUser) => {
+    const res = await axios.post('/api/users', {
+    "user": newUser
+    })
+    const clonedusers = [...this.state.users]
+    clonedusers.push(res.data)
+    this.setState({users: clonedusers})
+}
 
     render() {
+        const users = this.state.users.map(user => {
+                    return (
+                    <div key={user._id} ><Link to={`/user/${user._id}`}>{user.userName}</Link></div>
+                    )
+                })
         return (
             <div>
                 <h1>Users</h1>
                 <h3>Please choose an Exsisting User</h3>
-                {this.state.users.map(user => {
-                    return (<Link key={user._id} to={`/user/${user._id}`}>{user.userName}</Link>)
-                })}
-                <SignUpForm />
+                {users}
+                <SignUpForm updateUser={this.updateUser}/>
             </div>
         );
     }

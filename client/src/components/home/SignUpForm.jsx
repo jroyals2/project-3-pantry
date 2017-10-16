@@ -16,11 +16,22 @@ class SignUpForm extends Component {
         this.setState({newUser})
     }
 
+    handleSubmit = async (event) => {
+        event.preventDefault()
+        this.props.updateUser(this.state.newUser)
+        const emptyForm = {
+        userName: '',
+        password: '',
+        }
+        this.setState({newUser: emptyForm})
+    }
+
+
     render() {
         return (
             <div>
                 <h1>Sign Up Here!</h1>
-                <form action="">
+                <form onSubmit={this.handleSubmit} action="">
                     <div>
                         <label htmlFor="userName">User Name</label>
                         <input onChange={this.handleChange} type="text" name="userName" value={this.state.newUser.userName}/>
@@ -29,6 +40,7 @@ class SignUpForm extends Component {
                         <label htmlFor="password">Password</label>
                         <input onChange={this.handleChange} type="text" name="password" value={this.state.newUser.password}/>
                     </div>
+                    <button type="submit">Sign up!</button>
                 </form>
             </div>
         );
