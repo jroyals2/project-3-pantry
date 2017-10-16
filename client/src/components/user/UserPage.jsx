@@ -17,6 +17,7 @@ class UserPage extends Component {
         this.setState({user: res.data})
     }
 
+    
     render() {
         return (
             <div>

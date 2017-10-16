@@ -25,10 +25,13 @@ updateUser = async (newUser) => {
     this.setState({users: clonedusers})
 }
 
+
     render() {
         const users = this.state.users.map(user => {
                     return (
-                    <div key={user._id} ><Link to={`/user/${user._id}`}>{user.userName}</Link></div>
+                    <div key={user._id}>
+                        <Link to={`/user/${user._id}`}>{user.userName}</Link>
+                    </div>
                     )
                 })
         return (
