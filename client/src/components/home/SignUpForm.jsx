@@ -18,7 +18,7 @@ class SignUpForm extends Component {
 
     handleSubmit = async (event) => {
         event.preventDefault()
-        this.props.updateUser(this.state.newUser)
+        this.props.addNewPantry(this.state.newUser)
         const emptyForm = {
         userName: '',
         password: '',

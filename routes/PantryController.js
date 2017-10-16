@@ -6,7 +6,7 @@ const { User, Pantry } = require('../db/schema')
 
 router.post('/', async (req, res) => {
   try{
-    const newPantry = req.body
+    const newPantry = req.body.pantry
     const user = await User.findById(req.params.userId)
     user.pantry.push(newPantry)
     const saved = await user.save()
