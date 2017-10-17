@@ -15,12 +15,12 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try{
-      const newItem = req.body
+      const newItem = req.body.item
       const user = await User.findById(req.params.userId)
       const pantry = user.pantry.id(req.params.pantryId)
       pantry.items.push(newItem)
       const saved = await user.save()
-      res.json(saved)
+      res.json(pantry)
     } catch (err)  {
       res.json(err)
     }

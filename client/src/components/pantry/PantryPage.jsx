@@ -12,6 +12,18 @@ class PantryPage extends Component {
             location: '',
             items: []
         },
+        addItem: false
+    }
+
+    toggleAddItem = () => {
+        this.setState({ addItem: !this.state.addItem })
+    }
+    createNewItem = async (newItem) => {
+        const { userId, pantryId } = this.props.match.params
+        const res = await axios.post(`/api/users/${userId}/pantry/${pantryId}/item`, {
+            item: newItem
+        })
+        this.setState({ pantry: res.data })
     }
 
     async componentWillMount(){
@@ -25,7 +37,8 @@ class PantryPage extends Component {
             <div>
                 <h1>{this.state.pantry.pantryName}</h1>
                 <h3>Up in the {this.state.pantry.location}</h3>
-                <NewItem />
+                <div><button onClick={this.toggleAddItem}>{this.state.addItem ? 'Hide' : `Let's make an item`}</button></div>
+                <NewItem  createNewItem={this.createNewItem}/>
                 <PantryList 
                 userId={this.props.match.params.userId}
                 pantryId={this.props.match.params.pantryId}
