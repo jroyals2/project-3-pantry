@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const app = express();
 const usersController = require('./routes/UsersController');
 const pantryController = require('./routes/PantryController')
+const itemsController = require('./routes/ItemsController')
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI); //mongodb://localhost/idea-board
 
@@ -21,6 +22,7 @@ app.use(express.static(`${__dirname}/client/build`))
 app.use(bodyParser.json());
 app.use('/api/users', usersController)
 app.use('/api/users/:userId/pantry', pantryController)
+app.use('/api/users/:userId/pantry/:pantryId/item', itemsController)
 app.get('/', (req,res) => {
   res.sendFile(`${__dirname}/client/build/index.html`)
 })

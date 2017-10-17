@@ -28,7 +28,6 @@ class UserPage extends Component {
         event.preventDefault()
         const { userId } = this.props.match.params
         const id = event.target.value
-        console.log(id)
         const res = await axios.delete(`/api/users/${userId}/pantry/${id}`)
         this.setState({ user: res.data })
     }
@@ -70,7 +69,7 @@ class UserPage extends Component {
                     return (
                         <div key={pantry._id}>
                             <Link to={`/user/${this.state.user._id}/pantry/${pantry._id}`}>{pantry.pantryName}</Link>
-                            <button value={pantry._id} onClick={this.deletePantry}>Delete</button>
+                            <div><button value={pantry._id} onClick={this.deletePantry}>Delete</button></div>
                             <div><button onClick={this.toggleAdmin}>{this.state.admin ? 'Hide' : 'Edit this Pantry'}</button></div>
                             {this.state.admin ? <EditPantry
                                 handleChange={this.handleChange}
