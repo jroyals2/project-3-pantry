@@ -23,7 +23,6 @@ class UserPage extends Component {
     const res = await axios.post(`/api/users/${userId}/pantry`, {
     "pantry": newPantry
     })
-    console.log(res.data)
     this.setState({user: res.data})
   }
     
@@ -33,7 +32,7 @@ class UserPage extends Component {
                 <h1>{this.state.user.userName}</h1>
                 {this.state.user.pantry.map((pantry) => {
                     return (
-                        <Link key={pantry._id} to={`/user/${this.state.user._id}/pantry/${pantry._id}`}>{pantry.pantryName}</Link>
+                        <div key={pantry._id}><Link to={`/user/${this.state.user._id}/pantry/${pantry._id}`}>{pantry.pantryName}</Link></div>
                     )
                 })}
                 <PantryForm 
