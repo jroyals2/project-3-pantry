@@ -26,6 +26,14 @@ class PantryPage extends Component {
         this.setState({ pantry: res.data })
     }
 
+    deleteItem = async (event) => {
+        event.preventDefault()
+        const { userId, pantryId } = this.props.match.params
+        const id = event.target.value
+        const res = await axios.delete(`/api/users/${userId}/pantry/${pantryId}/item/${id}`)
+        this.setState({ pantry: res.data })
+    }
+
     async componentWillMount(){
         const { userId, pantryId } = this.props.match.params
         const res = await axios.get(`/api/users/${userId}/pantry/${pantryId}`)
@@ -43,6 +51,7 @@ class PantryPage extends Component {
                 userId={this.props.match.params.userId}
                 pantryId={this.props.match.params.pantryId}
                 pantry={this.state.pantry}
+                deleteItem={this.deleteItem}
                 />
             </div>
         );

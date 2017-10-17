@@ -62,7 +62,7 @@ router.patch('/:id', async (req, res) => {
       pantry.items.id(req.params.id).remove()
       
       const saved = await user.save()
-      res.json(saved)
+      res.json(pantry)
     })
 
 

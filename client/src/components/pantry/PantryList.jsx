@@ -12,6 +12,7 @@ class PantryList extends Component {
                         <Link to={`/user/${this.props.userId}/pantry/${this.props.pantryId}/item/${item._id}`}><h5>{item.itemName}</h5></Link>
                         <p>QTY: {item.quantity}</p>
                         <p>Par: {item.parLevel}</p>
+                        <button onClick={this.props.deleteItem} value={item._id}>delete</button>
                         </div>
                     )
                 })}
