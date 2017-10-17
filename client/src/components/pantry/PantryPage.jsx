@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import PantryList from './PantryList'
+import NewItem from '../item/NewItem'
 
 
 
@@ -24,6 +25,7 @@ class PantryPage extends Component {
             <div>
                 <h1>{this.state.pantry.pantryName}</h1>
                 <h3>Up in the {this.state.pantry.location}</h3>
+                <NewItem />
                 <PantryList 
                 userId={this.props.match.params.userId}
                 pantryId={this.props.match.params.pantryId}
