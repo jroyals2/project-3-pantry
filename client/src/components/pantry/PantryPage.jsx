@@ -10,7 +10,7 @@ class PantryPage extends Component {
             pantryName: '',
             location: '',
             items: []
-        }
+        },
     }
 
     async componentWillMount(){

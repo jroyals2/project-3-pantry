@@ -28,7 +28,7 @@ router.get('/:id', async (req, res) => {
 
 router.patch('/:id', async (req, res) => {
   
-  const updatedPantry = req.body
+  const updatedPantry = req.body.pantry
   const user = await User.findById(req.params.userId)
   const pantry = user.pantry.id(req.params.id)
 
