@@ -37,6 +37,27 @@ class PantryPage extends Component {
         const res = await axios.delete(`/api/users/${userId}/pantry/${pantryId}/item/${id}`)
         this.setState({ pantry: res.data })
     }
+    handleChange = (event, itemId) => {
+        const attribute = event.target.name
+        const clonedPantry = { ...this.state.pantry }
+        const item = clonedPantry.items.find(i => i._id === itemId)
+        console.log(item)
+        item[attribute] = event.target.value
+        this.setState({ pantry: clonedPantry })
+    }
+    updateItem = async (itemId) => {
+        const { userId, pantryId } = this.props.match.params
+        const id = itemId
+        const clonedPantry = { ...this.state.pantry }
+        const item = clonedPantry.items.find(i => i._id === itemId)
+        console.log(item)
+        const res = await axios.patch(`/api/users/${userId}/pantry/${pantryId}/item/${id}`, {
+            item: item
+        })
+        console.log(res.data)
+        this.setState({ pantry: res.data })
+    }
+
 
     async componentWillMount(){
         const { userId, pantryId } = this.props.match.params
@@ -57,6 +78,9 @@ class PantryPage extends Component {
                 pantry={this.state.pantry}
                 deleteItem={this.deleteItem}
                 toggleEditItem={this.toggleEditItem}
+                handleChange={this.handleChange}
+                updateItem={this.updateItem}
+                editItem={this.state.editItem}
                 />
             </div>
         );

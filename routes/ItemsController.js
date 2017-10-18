@@ -39,7 +39,7 @@ router.get('/:id', async (req, res) => {
 
 router.patch('/:id', async (req, res) => {
     try {
-    const updatedItem = req.body
+    const updatedItem = req.body.item
     const user = await User.findById(req.params.userId)
     const pantry = user.pantry.id(req.params.pantryId)
     const item = pantry.items.id(req.params.id)
@@ -49,7 +49,7 @@ router.patch('/:id', async (req, res) => {
     item.parLevel = updatedItem.parLevel
     
     const saved = await user.save()
-    res.json(saved)
+    res.json(pantry)
     } catch (err) {
         res.send(err)
     }
