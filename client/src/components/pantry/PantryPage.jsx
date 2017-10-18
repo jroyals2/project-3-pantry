@@ -12,11 +12,15 @@ class PantryPage extends Component {
             location: '',
             items: []
         },
-        addItem: false
+        addItem: false,
+        editItem: false
     }
 
     toggleAddItem = () => {
         this.setState({ addItem: !this.state.addItem })
+    }
+    toggleEditItem = () => {
+        this.setState({editItem: !this.state.editItem})
     }
     createNewItem = async (newItem) => {
         const { userId, pantryId } = this.props.match.params
@@ -46,12 +50,13 @@ class PantryPage extends Component {
                 <h1>{this.state.pantry.pantryName}</h1>
                 <h3>Up in the {this.state.pantry.location}</h3>
                 <div><button onClick={this.toggleAddItem}>{this.state.addItem ? 'Hide' : `Let's make an item`}</button></div>
-                <NewItem  createNewItem={this.createNewItem}/>
+                {this.state.addItem ? <NewItem  createNewItem={this.createNewItem}/> : `Don't see what you want?`}
                 <PantryList 
                 userId={this.props.match.params.userId}
                 pantryId={this.props.match.params.pantryId}
                 pantry={this.state.pantry}
                 deleteItem={this.deleteItem}
+                toggleEditItem={this.toggleEditItem}
                 />
             </div>
         );

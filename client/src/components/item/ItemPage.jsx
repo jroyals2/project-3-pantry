@@ -22,8 +22,6 @@ class ItemPage extends Component {
         return (
             <div>   
                 <h1>{this.state.item.itemName}</h1>
-                
-                <EditItem item={this.state.item}/>
 
                 <p>If everything looks good lets head back!</p>
                 <Link to={`/user/${this.props.match.params.userId}/pantry/${this.props.match.params.pantryId}`}>Did this work??</Link>
