@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
+import styled from 'styled-components'
 
+const SignUpWrapper = styled.div`
+display: flex;
+flex-direction: column;
+
+`
 class SignUpForm extends Component {
     state = {
         newUser: {
@@ -28,7 +34,7 @@ class SignUpForm extends Component {
 
     render() {
         return (
-            <div>
+            <SignUpWrapper>    
                 <h1>Sign Up Here!</h1>
                 <form onSubmit={this.handleSubmit} action="">
                     <div>
@@ -41,7 +47,7 @@ class SignUpForm extends Component {
                     </div>
                     <button type="submit">Sign up!</button>
                 </form>
-            </div>
+            </SignUpWrapper>
         );
     }
 }
