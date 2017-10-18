@@ -35,7 +35,8 @@ class UserPage extends Component {
             password: '',
             pantry: []
         },
-        admin: false
+        admin: false,
+        groceryList: []
     }
 
     async componentWillMount() {
@@ -85,16 +86,22 @@ class UserPage extends Component {
     populateGroceryList = () => {
         const groceryList = this.state.user.pantry.map((pantry) => {
             console.log(pantry)
-            const pantryList = pantry.items.filter((item) => {
+            return pantry.items.filter((item) => {
 
                 console.log(item)
                 return Number(item.parLevel) >= Number(item.quantity)
             })
-            return pantryList
+            
         })
-
-        console.log(groceryList)
+        let updatedGroceryList = [];
+        groceryList.map(array => {
+            array.map(item => {
+                updatedGroceryList.push(item)
+            })
+        })
+        this.setState({groceryList: updatedGroceryList})
     }
+    
 
 
     render() {
@@ -121,6 +128,14 @@ class UserPage extends Component {
                 />
                 <h1>Populate Grocery List!</h1>
                 <button onClick={this.populateGroceryList}>Populate</button>
+                {this.state.groceryList.map((items) => {
+                    return(
+                        <div key={items._id}>
+                        <h5>{items.itemName}</h5>
+                        <p>Amount to buy: {Number(items.parLevel) - Number(items.quantity)}</p>
+                        </div>
+                    )
+                })}
             </UserWrapper>
         );
     }
