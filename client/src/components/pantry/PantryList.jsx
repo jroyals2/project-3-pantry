@@ -20,6 +20,7 @@ class PantryList extends Component {
                                 updateItem={this.props.updateItem}
                             /> : ''}
                             <div><button onClick={this.props.deleteItem} value={item._id}>delete</button></div>
+                            <hr/>
                         </div>
                     )
                 })}
