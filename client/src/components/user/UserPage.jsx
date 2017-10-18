@@ -5,8 +5,16 @@ import PantryForm from '../pantry/PantryForm'
 import EditPantry from '../pantry/EditPantry'
 import styled from 'styled-components'
 
+const PantryNameWrapper = styled.a`
+text-decoration: none;
+font-size: 30px;
+color: rgb(216, 188, 65);
+text-transform: uppercase;
+font-weight: bold;
+`
+
 const UserWrapper = styled.div`
-background-color: rgba(128,128,128, .8);
+background-color: rgba(109, 96, 80, .8);
 display: flex;
 flex-direction: column;
 justify-content: space-around;
@@ -111,7 +119,7 @@ class UserPage extends Component {
                 {this.state.user.pantry.map((pantry) => {
                     return (
                         <div key={pantry._id}>
-                            <Link to={`/user/${this.state.user._id}/pantry/${pantry._id}`}>{pantry.pantryName}</Link>
+                            <Link to={`/user/${this.state.user._id}/pantry/${pantry._id}`}><PantryNameWrapper>{pantry.pantryName}</PantryNameWrapper></Link>
                             <div><ButtonDelete value={pantry._id} onClick={this.deletePantry}>Delete</ButtonDelete></div>
                             <div><ButtonEditAdd onClick={this.toggleAdmin}>{this.state.admin ? 'Hide' : 'Edit this Pantry'}</ButtonEditAdd></div>
                             {this.state.admin ? <EditPantry

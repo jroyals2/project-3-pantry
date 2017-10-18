@@ -5,7 +5,7 @@ import SignUpForm from './SignUpForm'
 import styled from 'styled-components'
 
 const HomeWrapper = styled.div`
-background-color: rgba(128,128,128, .8);
+background-color: rgba(109, 96, 80, .8);
 display: flex;
 flex-direction: column;
 justify-content: space-around;
@@ -14,6 +14,24 @@ margin: 25px auto;
 max-width: 50%;
 border-radius: 10px;
 box-shadow: inset 0 0 1em black, 0 0 1em white;
+`
+
+const UserLinkButton = styled.button`
+display: flex;
+justify-content: space-between;
+max-width: 209px;
+margin: auto;
+font-size: 20px;
+color: blue;
+text-align: center;
+background-color: rgb(71, 45, 12);
+box-shadow: inset 0 0 1em black, 0 0 1em white;
+border-radius: 10px;
+
+ a {
+   text-decoration: none;
+   color: rgb(204, 132, 38);
+ }
 `
 class HomePage extends Component {
     state = {
@@ -43,9 +61,9 @@ class HomePage extends Component {
         
         const users = this.state.users.map(user => {
             return (
-                <div key={user._id}>
+                <UserLinkButton key={user._id}>
                     <Link to={`/user/${user._id}`}>{user.userName}</Link>
-                </div>
+                </UserLinkButton>
             )
         })
         return (

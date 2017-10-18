@@ -5,7 +5,7 @@ import NewItem from '../item/NewItem'
 import styled from 'styled-components'
 
 const PantryWrapper = styled.div`
-background-color: rgba(128,128,128, .8);
+background-color: rgba(109, 96, 80, .8);
 display: flex;
 flex-direction: column;
 justify-content: space-around;
