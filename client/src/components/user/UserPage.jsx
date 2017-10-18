@@ -11,10 +11,20 @@ display: flex;
 flex-direction: column;
 justify-content: space-around;
 align-items: center;
+text-align: center;
 margin: 25px auto;
 max-width: 50%;
 border-radius: 10px;
 box-shadow: inset 0 0 1em black, 0 0 1em white;
+`
+const ButtonDelete = styled.button`
+background-color: grey;
+color: black;
+border-radius: 10px;
+`
+const ButtonEditAdd = styled.button`
+background-color: black;
+color: white;
 `
 
 class UserPage extends Component {
@@ -82,8 +92,8 @@ class UserPage extends Component {
                     return (
                         <div key={pantry._id}>
                             <Link to={`/user/${this.state.user._id}/pantry/${pantry._id}`}>{pantry.pantryName}</Link>
-                            <div><button value={pantry._id} onClick={this.deletePantry}>Delete</button></div>
-                            <div><button onClick={this.toggleAdmin}>{this.state.admin ? 'Hide' : 'Edit this Pantry'}</button></div>
+                            <div><ButtonDelete value={pantry._id} onClick={this.deletePantry}>Delete</ButtonDelete></div>
+                            <div><ButtonEditAdd onClick={this.toggleAdmin}>{this.state.admin ? 'Hide' : 'Edit this Pantry'}</ButtonEditAdd></div>
                             {this.state.admin ? <EditPantry
                                 handleChange={this.handleChange}
                                 updatePantry={this.updatePantry}

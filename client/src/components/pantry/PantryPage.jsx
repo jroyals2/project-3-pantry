@@ -15,7 +15,11 @@ max-width: 50%;
 border-radius: 10px;
 box-shadow: inset 0 0 1em black, 0 0 1em white;
 `
-
+const ButtonEditAdd = styled.button`
+background-color: black;
+color: white;
+border-radius: 10px;
+`
 class PantryPage extends Component {
     state = {
         pantry: {
@@ -81,7 +85,7 @@ class PantryPage extends Component {
             <PantryWrapper>
                 <h1>{this.state.pantry.pantryName}</h1>
                 <h3>Up in the {this.state.pantry.location}</h3>
-                <div><button onClick={this.toggleAddItem}>{this.state.addItem ? 'Hide' : `Let's make an item`}</button></div>
+                <div><ButtonEditAdd onClick={this.toggleAddItem}>{this.state.addItem ? 'Hide' : `Let's make an item`}</ButtonEditAdd></div>
                 {this.state.addItem ? <NewItem  createNewItem={this.createNewItem}/> : `Don't see what you want?`}
                 <PantryList 
                 userId={this.props.match.params.userId}

@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
+import styled from 'styled-components'
 
+
+const ButtonEditAdd = styled.button`
+background-color: black;
+color: white;
+border-radius: 10px;
+`
 class PantryForm extends Component {
     state ={
         newPantry: {
@@ -38,7 +45,7 @@ class PantryForm extends Component {
                     <label htmlFor="location">Location</label>
                     <input onChange={this.handleChange} type="text" name="location" value={this.state.newPantry.location}/>
                 </div>
-                <button type="submit">Add A Pantry</button>
+                <ButtonEditAdd type="submit">Add A Pantry</ButtonEditAdd>
             </form>
             </div>
         );
