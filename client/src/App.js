@@ -7,17 +7,22 @@ import PantryPage from './components/pantry/PantryPage'
 import ItemPage from './components/item/ItemPage'
 import styled from 'styled-components'
 
-const NaveBare = styled.div`
+const NaveBare = styled.button`
 display: flex;
 justify-content: space-between;
 max-width: 209px;
 margin: auto;
-font-size: 40px;
+font-size: 20px;
 color: blue;
 text-align: center;
-background-color: black;
+background-color: rgb(79, 79, 79);
 box-shadow: inset 0 0 1em black, 0 0 1em white;
 border-radius: 10px;
+
+ a {
+   text-decoration: none;
+   color: white;
+ }
 `
 
 class App extends Component {
