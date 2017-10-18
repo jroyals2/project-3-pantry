@@ -2,8 +2,19 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import PantryList from './PantryList'
 import NewItem from '../item/NewItem'
+import styled from 'styled-components'
 
-
+const PantryWrapper = styled.div`
+background-color: rgba(128,128,128, .8);
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+align-items: center;
+margin: 25px auto;
+max-width: 50%;
+border-radius: 10px;
+box-shadow: inset 0 0 1em black, 0 0 1em white;
+`
 
 class PantryPage extends Component {
     state = {
@@ -67,7 +78,7 @@ class PantryPage extends Component {
 
     render() {
         return (
-            <div>
+            <PantryWrapper>
                 <h1>{this.state.pantry.pantryName}</h1>
                 <h3>Up in the {this.state.pantry.location}</h3>
                 <div><button onClick={this.toggleAddItem}>{this.state.addItem ? 'Hide' : `Let's make an item`}</button></div>
@@ -82,7 +93,7 @@ class PantryPage extends Component {
                 updateItem={this.updateItem}
                 editItem={this.state.editItem}
                 />
-            </div>
+            </PantryWrapper>
         );
     }
 }

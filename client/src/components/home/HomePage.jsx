@@ -5,7 +5,7 @@ import SignUpForm from './SignUpForm'
 import styled from 'styled-components'
 
 const HomeWrapper = styled.div`
-background-color: grey;
+background-color: rgba(128,128,128, .8);
 display: flex;
 flex-direction: column;
 justify-content: space-around;
@@ -14,11 +14,6 @@ margin: 25px auto;
 max-width: 50%;
 border-radius: 10px;
 box-shadow: inset 0 0 1em black, 0 0 1em white;
-`
-const SignUpWrapper = styled.div`
-display: flex;
-align-items: center;
-
 `
 class HomePage extends Component {
     state = {

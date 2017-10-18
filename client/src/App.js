@@ -15,6 +15,7 @@ margin: auto;
 font-size: 40px;
 color: blue;
 background-color: grey;
+box-shadow: inset 0 0 1em black, 0 0 1em white;
 `
 
 class App extends Component {

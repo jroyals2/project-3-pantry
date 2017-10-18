@@ -3,6 +3,19 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import PantryForm from '../pantry/PantryForm'
 import EditPantry from '../pantry/EditPantry'
+import styled from 'styled-components'
+
+const UserWrapper = styled.div`
+background-color: rgba(128,128,128, .8);
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+align-items: center;
+margin: 25px auto;
+max-width: 50%;
+border-radius: 10px;
+box-shadow: inset 0 0 1em black, 0 0 1em white;
+`
 
 class UserPage extends Component {
     state = {
@@ -63,7 +76,7 @@ class UserPage extends Component {
 
     render() {
         return (
-            <div>
+            <UserWrapper>
                 <h1>{this.state.user.userName}</h1>
                 {this.state.user.pantry.map((pantry) => {
                     return (
@@ -83,7 +96,7 @@ class UserPage extends Component {
                     pantry={this.state.pantry}
                     createNewPantry={this.createNewPantry}
                 />
-            </div>
+            </UserWrapper>
         );
     }
 }

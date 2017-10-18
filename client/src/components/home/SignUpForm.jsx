@@ -4,6 +4,7 @@ import styled from 'styled-components'
 const SignUpWrapper = styled.div`
 display: flex;
 flex-direction: column;
+justify-content: center;
 
 `
 class SignUpForm extends Component {
@@ -38,11 +39,11 @@ class SignUpForm extends Component {
                 <h1>Sign Up Here!</h1>
                 <form onSubmit={this.handleSubmit} action="">
                     <div>
-                        <label htmlFor="userName">User Name</label>
+                        <label htmlFor="userName">User Name: </label>
                         <input onChange={this.handleChange} type="text" name="userName" value={this.state.newUser.userName}/>
                     </div>                
                     <div>
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password">Password: </label>
                         <input onChange={this.handleChange} type="text" name="password" value={this.state.newUser.password}/>
                     </div>
                     <button type="submit">Sign up!</button>
