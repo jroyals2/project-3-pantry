@@ -10,12 +10,14 @@ import styled from 'styled-components'
 const NaveBare = styled.div`
 display: flex;
 justify-content: space-between;
-max-width: 210px;
+max-width: 209px;
 margin: auto;
 font-size: 40px;
 color: blue;
-background-color: grey;
+text-align: center;
+background-color: black;
 box-shadow: inset 0 0 1em black, 0 0 1em white;
+border-radius: 10px;
 `
 
 class App extends Component {

@@ -7,8 +7,8 @@ const { User, Pantry, Item } = require('./schema')
 
 const ramen = new Item ({
     itemName: 'Chicken Flavored Ramen',
-    quantity: 6,
-    parLevel: 4
+    quantity: 3,
+    parLevel: 6
 })
 
 const potatoChips = new Item ({
@@ -19,7 +19,7 @@ const potatoChips = new Item ({
 
 const tomatoSoup = new Item ({
     itemName: "Campbell's Tomato Soup",
-    quantity: 5,
+    quantity: 1,
     parLevel: 3
 })
 

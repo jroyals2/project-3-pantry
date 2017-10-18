@@ -25,6 +25,7 @@ border-radius: 10px;
 const ButtonEditAdd = styled.button`
 background-color: black;
 color: white;
+border-radius 10px;
 `
 
 class UserPage extends Component {
@@ -81,7 +82,19 @@ class UserPage extends Component {
         pantry[attribute] = event.target.value
         this.setState({ user: clonedUser })
     }
+    populateGroceryList = () => {
+        const groceryList = this.state.user.pantry.map((pantry) => {
+            console.log(pantry)
+            const pantryList = pantry.items.filter((item) => {
 
+                console.log(item)
+                return Number(item.parLevel) >= Number(item.quantity)
+            })
+            return pantryList
+        })
+
+        console.log(groceryList)
+    }
 
 
     render() {
@@ -106,6 +119,8 @@ class UserPage extends Component {
                     pantry={this.state.pantry}
                     createNewPantry={this.createNewPantry}
                 />
+                <h1>Populate Grocery List!</h1>
+                <button onClick={this.populateGroceryList}>Populate</button>
             </UserWrapper>
         );
     }

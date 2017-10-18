@@ -19,6 +19,10 @@ const PantrySchema = mongoose.Schema({
     location: String,
     items: [ItemSchema]
 })
+const GroceryList = mongoose.Schema({
+    item: String,
+    qty: Number
+})
 // This will be the master schema 
 const UserSchema = mongoose.Schema({
     userName: {
@@ -28,7 +32,8 @@ const UserSchema = mongoose.Schema({
     password: {
         type: String,
     },
-    pantry: [PantrySchema]
+    pantry: [PantrySchema],
+    groceryList: [GroceryList]
 
 })
 
