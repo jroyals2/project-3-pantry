@@ -2,6 +2,12 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import EditItem from '../item/EditItem'
 import styled from 'styled-components'
+const ItemsWrapper = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+text-align: center;
+`
 
 const ButtonEditAdd = styled.button`
 background-color: black;
@@ -19,8 +25,8 @@ class PantryList extends Component {
             <div>
                 {this.props.pantry.items.map((item) => {
                     return (
-                        <div key={item._id}>
-                            <Link to={`/user/${this.props.userId}/pantry/${this.props.pantryId}/item/${item._id}`}><h5>{item.itemName}</h5></Link>
+                        <ItemsWrapper key={item._id}>
+                            <h3>{item.itemName}</h3>
                             <p>QTY: {item.quantity}</p>
                             <p>Par: {item.parLevel}</p>
                             <div><ButtonEditAdd onClick={this.props.toggleEditItem}>Edit Me</ButtonEditAdd></div>
@@ -30,8 +36,7 @@ class PantryList extends Component {
                                 updateItem={this.props.updateItem}
                             /> : ''}
                             <div><ButtonDelete onClick={this.props.deleteItem} value={item._id}>delete</ButtonDelete></div>
-                            <hr/>
-                        </div>
+                        </ItemsWrapper>
                     )
                 })}
             </div>
