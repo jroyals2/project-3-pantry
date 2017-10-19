@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "ERD https://github.com/jroyals2/project-3-pantry/blob/master/ERD%20for%20pantry.png",
   "main": "index.js",
-  "node": "8.6.0",
+  "engines": {
+    "node": "8.6.0"  
+  },
   "scripts": {
     "start": "node server.js",
     "dev": "concurrently \"nodemon server.js\" \"cd ./client  && npm start \" ",
