@@ -28,13 +28,13 @@ border-radius: 10px;
 class App extends Component {
   render() {
     return (
-      <Router> 
+      <Router>
         <div>
           <NaveBare><Link to={'/'}>Back to Users</Link></NaveBare>
           <Switch>
-            <Route exact path="/" component={HomePage}/>
-            <Route exact path="/user/:userId" component={UserPage}/>
-            <Route exact path="/user/:userId/pantry/:pantryId" component={PantryPage}/>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/user/:userId" component={UserPage} />
+            <Route exact path="/user/:userId/pantry/:pantryId" component={PantryPage} />
             <Route exact path="/user/:userId/pantry/:pantryId/item/:itemId" component={ItemPage} />
           </Switch>
         </div>

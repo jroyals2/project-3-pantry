@@ -40,39 +40,39 @@ class SignUpForm extends Component {
     }
     handleChange = (event) => {
         const attribute = event.target.name
-        const newUser = {...this.state.newUser}
+        const newUser = { ...this.state.newUser }
         newUser[attribute] = event.target.value
         console.log("Cha cha change!")
-        this.setState({newUser})
+        this.setState({ newUser })
     }
 
     handleSubmit = async (event) => {
         event.preventDefault()
         this.props.updateUser(this.state.newUser)
         const emptyForm = {
-        userName: '',
-        password: '',
+            userName: '',
+            password: '',
         }
-        this.setState({newUser: emptyForm})
+        this.setState({ newUser: emptyForm })
     }
 
 
     render() {
         return (
-               <div>
+            <div>
                 <form onSubmit={this.handleSubmit} action="">
-                <SignUpWrapper> 
-                    <h1>Sign Up Here!</h1>
-                    <div>
-                        <label htmlFor="userName">User Name: </label>
-                        <input onChange={this.handleChange} type="text" name="userName" value={this.state.newUser.userName}/>
-                    </div>                
-                    <div>
-                        <label htmlFor="password">Password: </label>
-                        <input onChange={this.handleChange} type="text" name="password" value={this.state.newUser.password}/>
-                    </div>
-                    <SignUpButton type="submit">Sign up!</SignUpButton>
-                </SignUpWrapper>
+                    <SignUpWrapper>
+                        <h1>Sign Up Here!</h1>
+                        <div>
+                            <label htmlFor="userName">User Name: </label>
+                            <input onChange={this.handleChange} type="text" name="userName" value={this.state.newUser.userName} />
+                        </div>
+                        <div>
+                            <label htmlFor="password">Password: </label>
+                            <input onChange={this.handleChange} type="text" name="password" value={this.state.newUser.password} />
+                        </div>
+                        <SignUpButton type="submit">Sign up!</SignUpButton>
+                    </SignUpWrapper>
                 </form>
             </div>
         );

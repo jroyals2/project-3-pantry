@@ -42,6 +42,6 @@ const Pantry = mongoose.model("Pantry", PantrySchema)
 const User = mongoose.model("User", UserSchema)
 
 
-module.exports= {
+module.exports = {
     Item, Pantry, User
 }

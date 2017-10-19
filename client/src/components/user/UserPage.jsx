@@ -99,7 +99,7 @@ class UserPage extends Component {
                 console.log(item)
                 return Number(item.parLevel) >= Number(item.quantity)
             })
-            
+
         })
         let updatedGroceryList = [];
         groceryList.map(array => {
@@ -107,9 +107,9 @@ class UserPage extends Component {
                 updatedGroceryList.push(item)
             })
         })
-        this.setState({groceryList: updatedGroceryList})
+        this.setState({ groceryList: updatedGroceryList })
     }
-    
+
 
 
     render() {
@@ -137,10 +137,10 @@ class UserPage extends Component {
                 <h1>Populate Grocery List!</h1>
                 <button onClick={this.populateGroceryList}>Populate</button>
                 {this.state.groceryList.map((items) => {
-                    return(
+                    return (
                         <div key={items._id}>
-                        <h5>{items.itemName}</h5>
-                        <p>Amount to buy: {Number(items.parLevel) - Number(items.quantity)}</p>
+                            <h5>{items.itemName}</h5>
+                            <p>Amount to buy: {Number(items.parLevel) - Number(items.quantity)}</p>
                         </div>
                     )
                 })}

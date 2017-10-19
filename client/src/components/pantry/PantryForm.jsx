@@ -8,7 +8,7 @@ color: white;
 border-radius: 10px;
 `
 class PantryForm extends Component {
-    state ={
+    state = {
         newPantry: {
             pantryName: '',
             location: ''
@@ -16,20 +16,20 @@ class PantryForm extends Component {
     }
     handleChange = (event) => {
         const attribute = event.target.name
-        const newPantry = {...this.state.newPantry}
+        const newPantry = { ...this.state.newPantry }
         newPantry[attribute] = event.target.value
         console.log("Cha cha change!")
-        this.setState({newPantry})
+        this.setState({ newPantry })
     }
 
     handleSubmit = async (event) => {
         event.preventDefault()
         this.props.createNewPantry(this.state.newPantry)
         const emptyForm = {
-        pantryName: '',
-        location: '',
+            pantryName: '',
+            location: '',
         }
-        this.setState({newPantry: emptyForm})
+        this.setState({ newPantry: emptyForm })
     }
 
 
@@ -37,16 +37,16 @@ class PantryForm extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                <div>
-                    <label htmlFor="pantryName">Pantry Name</label>
-                    <input onChange={this.handleChange} type="text" name="pantryName" value={this.state.newPantry.pantryName}/>
-                </div>                
-                <div>
-                    <label htmlFor="location">Location</label>
-                    <input onChange={this.handleChange} type="text" name="location" value={this.state.newPantry.location}/>
-                </div>
-                <ButtonEditAdd type="submit">Add A Pantry</ButtonEditAdd>
-            </form>
+                    <div>
+                        <label htmlFor="pantryName">Pantry Name</label>
+                        <input onChange={this.handleChange} type="text" name="pantryName" value={this.state.newPantry.pantryName} />
+                    </div>
+                    <div>
+                        <label htmlFor="location">Location</label>
+                        <input onChange={this.handleChange} type="text" name="location" value={this.state.newPantry.location} />
+                    </div>
+                    <ButtonEditAdd type="submit">Add A Pantry</ButtonEditAdd>
+                </form>
             </div>
         );
     }

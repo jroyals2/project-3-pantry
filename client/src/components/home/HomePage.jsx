@@ -58,7 +58,7 @@ class HomePage extends Component {
 
 
     render() {
-        
+
         const users = this.state.users.map(user => {
             return (
                 <UserLinkButton key={user._id}>
@@ -75,8 +75,8 @@ class HomePage extends Component {
             </HomeWrapper>
 
         );
-        
+
     }
-    
+
 }
 export default HomePage;
